@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remindr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="todo-form">
+<form action="">
+    <input type="text" name="todotitle" placeholder="Add new Todo...">
+    <button>+</button>
+</form>
+        </div>
+        <div class="todo-table">
+            <h1>Todo´s</h1>
+            <small>4 Total, 1 Complete and 3 pending</small>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Todo Title</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Drink Milk</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Breakfast</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr class="complete">
+                        <td><input type="checkbox" checked></td>
+                        <td>Eat Lunch</td>
+                        <td>Complete</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Sleep</td>
+                        <td>Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

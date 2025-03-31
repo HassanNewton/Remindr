@@ -1,0 +1,128 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right top, #5d3472, #924179, #bf5478, #e47073, #fd936e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.todo-form , .todo-table {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 1em;
+    position: relative;
+    width: clamp(450px,50vw, 650px);
+}
+
+.todo-form input {
+    font-size: 25px;
+    line-height: 29px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.todo-form button {
+    font-size: 25px;
+    line-height: 25px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: rgb(159, 159, 159);
+    position: absolute;
+    right: 1em;
+    margin-top: 7px;
+}
+
+/* Table */
+
+.todo-table {
+    margin-top: 1em;
+}
+
+.todo-table h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    color: #343434;
+}
+
+.todo-table small {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 14px;
+    color: #404040;
+}
+
+.todo-table table {
+    border-spacing: 0px;
+    margin-top: 1em;
+    width: 100%;
+    background-color: rgb(252, 249, 255);
+    border-radius: 5px;
+}
+
+.todo-table thead tr {
+    background-color: #bd6da3;
+    color: aliceblue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+height: 30px;
+}
+
+.todo-table thead tr th:first-child{
+    border-radius: 5px 0px 0px 0px;
+}
+
+.todo-table thead tr th:last-child {
+    border-radius: 0px 5px 0px 0px;
+}
+
+.todo-table tbody tr {
+  
+    color: rgb(10, 10, 10);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    height: 30px;
+}
+
+.todo-table tbody tr td:first-child {
+    text-align: center;
+    padding: 5px;
+}
+
+.todo-table tbody tr td:last-child {
+text-align: center;
+    padding: 5px;
+}
+
+.todo-table tbody tr:nth-child(even) {
+    background-color: rgb(248, 240, 255);
+}
+
+.todo-table tbody tr:last-child td:first-child {
+    border-radius: 0px 0px 0px 5px;
+}
+
+.todo-table tbody tr:last-child td:last-child {
+    border-radius: 0px 0px 5px 0px;
+}
+
+.todo-table tbody tr.complete {
+    background-color: rgb(170, 250, 224);
+    text-decoration: line-through;
+}
