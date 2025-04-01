@@ -17,6 +17,8 @@ let todos = [
   },
 ];
 
+getTodosFromStorage();
+
 let todoForm = document.querySelector(".todo-form form");
 let htmlBody = document.querySelector(".todo-table tbody");
 
@@ -31,17 +33,14 @@ todoForm.addEventListener("submit", function (e) {
   todoForm.todotitle.value = "";
 });
 
-htmlBody.addEventListener("click", (e) => {
-  console.log(e.target.checked);
+htmlBody.addEventListener("click", function (e) {
   if (e.target.getAttribute("type") == "checkbox") {
-    let tr = e.target.parentNode.parentNode;
     if (e.target.checked) {
-      tr.classList.add("complete");
-      tr.lastElementChild.innerHTML = "Complete";
+      todos[e.target.id].status = "Complete";
     } else {
-      tr.classList.remove("complete");
-      tr.lastElementChild.innerHTML = "Pending";
+      todos[e.target.id].status = "Pending";
     }
+    renderTodo();
     calculateTodoStatus();
   }
 });
@@ -73,43 +72,57 @@ const addTodoItem = (title) => {
   });
 };
 
-const calculateTodoStatus = () => {
+function calculateTodoStatus() {
   let total = 0;
   let complete = 0;
-  let checkboxes = document.querySelectorAll(
-    '.todo-table table tbody input[type="checkbox"]'
-  );
-  for (let checkbox of checkboxes) {
+  for (let todo of todos) {
     total++;
-    if (checkbox.checked) {
+    if (todo.status == "Complete") {
       complete++;
-      checkbox.setAttribute("checked", "");
     }
   }
-
   let status = document.querySelector(".todo-table small");
 
   if (total == complete) {
-    status.innerHTML = `Congratulations All Tasks are Completed`;
+    status.innerHTML = `Congratulations!!! All Tasks completed.`;
   } else {
     status.innerHTML = `${total} Total, ${complete} Complete and ${
       total - complete
-    } pending`;
+    } Pending`;
   }
-};
+}
 
-const renderTodo = () => {
+function renderTodo() {
   htmlBody.innerHTML = "";
-
-  todos.forEach((todo, i) => {
-    htmlBody.innerHTML += `<tr ${todo.status == "Complete" ? "complete" : ""}>
-                        <td><input type="checkbox" ${
-                          todo.status == "complete" ? "checked" : ""
-                        } id="${i}"></td>
-                        <td>${todo.title}</td>
-                        <td>${todo.status}</td>
-                    </tr>`;
+  if (todos.length <= 0) {
+    htmlBody.innerHTML = `<tr>
+                                    <td colspan="3">No Todos added till now.</td>
+                                </tr>`;
+  }
+  todos.forEach(function (todo, i) {
+    htmlBody.innerHTML += `<tr class="${
+      todo.status == "Complete" ? "complete" : ""
+    }">
+                                    <td><input type="checkbox" ${
+                                      todo.status == "Complete" ? "checked" : ""
+                                    } name="" id="${i}"></td>
+                                    <td>${todo.title}</td>
+                                    <td>${todo.status}</td>
+                                </tr>`;
   });
-};
+  saveToStorage();
+}
+
+function saveToStorage() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function getTodosFromStorage() {
+  if (localStorage.getItem("todos") == null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+}
 
 renderTodo();
