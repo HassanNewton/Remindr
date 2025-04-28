@@ -1,19 +1,24 @@
 {
-    "todos": [
-        {
-            "id": 1,
-            "title": "Learn JavaScript",
-            "completed": false
-        },
-        {
-            "id": 2,
-            "title": "Learn React",
-            "completed": false
-        },
-        {
-            "id": 3,
-            "title": "Learn Node.js",
-            "completed": true
-        }
-    ]
+  "todos": [
+    {
+      "id": "1",
+      "title": "Learn JavaScript",
+      "status": "Pending"
+    },
+    {
+      "id": "2",
+      "title": "Learn React",
+      "status": "Pending"
+    },
+    {
+      "id": "3",
+      "title": "Learn Node.js",
+      "status": "Pending"
+    },
+    {
+      "id": "7965",
+      "title": "hej",
+      "status": "Pending"
+    }
+  ]
 }
